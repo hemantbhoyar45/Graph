@@ -52,16 +52,22 @@ The fire-defense router models fire-prone zones, resource allocation, and evacua
 
 ## Local setup
 
-### Backend
+### 1 way to run Backend
 
 ```bash
-cd /home/vivek/Desktop/citygraph/backend
-python3 -m venv .venv
-source .venv/bin/activate
+cd /citygraph/backend
+.\.venv\Scripts\uvicorn.exe main:app --reload --port 8000
+
+# 2) to run backend
+
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
 pip install -r requirements.txt
-cp .env.example .env
+pip install python-dotenv pandas email-validator
+cd backend
 uvicorn main:app --reload --port 8000
-```
+
 
 Backend URL:
 - http://127.0.0.1:8000
@@ -70,7 +76,7 @@ Backend URL:
 ### Frontend
 
 ```bash
-cd /home/vivek/Desktop/citygraph/frontend
+cd /citygraph/frontend
 npm install
 npm run dev
 ```
